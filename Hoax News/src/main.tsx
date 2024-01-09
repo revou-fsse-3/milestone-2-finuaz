@@ -4,24 +4,33 @@ import App from './App.tsx'
 import './index.css'
 import {
 	createBrowserRouter,
-	RouterProvider
+	RouterProvider,Route, Routes
   } from "react-router-dom";
 import Navbar from './containers/Navbar.tsx';
-import NewsList from './containers/NewsList.tsx';
+import NewsList from './containers/ContentContainer.tsx';
+import ContentContainer from './containers/ContentContainer.tsx';
 
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element : <App/>
+		element : <ContentContainer/>
+	},
+	{
+		path: "/dashboard",
+		element : <h1>Dashboard</h1>
 	},
 	{
 		path: "/search-result/:query",
-		element : <h1>Search Result</h1>
+		element : <h1>Search result</h1>
+	},
+	{
+		path: "/categories/:category",
+		element : <h1>Categories</h1>
 	},
 	{
 		path: "/article/:id",
-		element : <div><NewsList/></div>
+		element : <h1>article details</h1>
 	}
 ]);
 
