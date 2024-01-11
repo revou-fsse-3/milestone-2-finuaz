@@ -7,15 +7,15 @@ import {
 	RouterProvider,Route, Routes
   } from "react-router-dom";
 import Navbar from './containers/Navbar.tsx';
-import NewsList from './containers/ContentContainer.tsx';
 import ContentContainer from './containers/ContentContainer.tsx';
 import Carousels from './containers/ContentContainer.tsx';
+import NewsBox from './containers/MockFrame.tsx';
 
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element : <Carousels/>
+		element : <ContentContainer/>
 	},
 	{
 		path: "/dashboard",
@@ -32,13 +32,19 @@ const router = createBrowserRouter([
 	{
 		path: "/article/:id",
 		element : <h1>article details</h1>
-	}
+	},
+	{
+		path: "/mock-frame",
+		element : <NewsBox/>
+	},
 ]);
 
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
-		<Navbar />
-		<RouterProvider router={router} />
+		<div className='bg-indigo-100 h-[100vh]'>
+			<Navbar />
+			<RouterProvider router={router} />
+		</div>
 	</React.StrictMode>,
 )
