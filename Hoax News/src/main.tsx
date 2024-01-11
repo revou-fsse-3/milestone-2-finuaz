@@ -9,12 +9,13 @@ import {
 import Navbar from './containers/Navbar.tsx';
 import NewsList from './containers/ContentContainer.tsx';
 import ContentContainer from './containers/ContentContainer.tsx';
+import Carousels from './containers/ContentContainer.tsx';
 
 
 const router = createBrowserRouter([
 	{
 		path: "/",
-		element : <ContentContainer/>
+		element : <Carousels/>
 	},
 	{
 		path: "/dashboard",

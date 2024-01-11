@@ -26,7 +26,7 @@ const Navbar = () => {
 
 	return (
         <div className='flex flex-row p-8 bg-gradient-to-r from-purple-900 via-indigo-500 to-violet-600 justify-around items-center'>
-            <div className='flex flex-col'>
+            <div className='flex flex-col pr-16'>
                 <h1 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight lg:text-5xl text-secondary">
                     Hoax News
                 </h1>
