@@ -40,11 +40,12 @@ const router = createBrowserRouter([
 ]);
 
 
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
-	<React.StrictMode>
+	// <React.StrictMode>
 		<div className='bg-indigo-100 h-[100vh]'>
 			<Navbar />
 			<RouterProvider router={router} />
 		</div>
-	</React.StrictMode>,
+	// </React.StrictMode>,
 )
