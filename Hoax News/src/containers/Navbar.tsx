@@ -1,27 +1,34 @@
 import {
 	NavigationMenu,
-	NavigationMenuContent,
+	// NavigationMenuContent,
 	// NavigationMenuIndicator,
 	NavigationMenuItem,
-	NavigationMenuLink,
+	// NavigationMenuLink,
 	NavigationMenuList,
-	NavigationMenuTrigger,
+    // Separator
+	// NavigationMenuTrigger,
 	// NavigationMenuViewport,
 } from '@/components/ui/navigation-menu'
 import { Input } from "@/components/ui/input"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import { Separator } from "@/components/ui/separator"
-import magnifier from "./assets/magnifier.svg"
-  
-
-
 
 const Navbar = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
+    // const [searchQuery, setSearchQuery] = useState('');
+
 
     const navigateToCategory = (categoryValue : string) => {
         navigate(`/categories/${categoryValue}`);
       };    
+    
+    // const handleSearch = (event) => {
+    //     if (event.key === 'Enter') {
+    //         // Update the URL with the search query
+    //         console.log(searchQuery)
+    //         // navigate(`/search-result?query=${searchQuery}`);
+    //     }
+    // };
 
 
 	return (
@@ -35,24 +42,30 @@ const Navbar = () => {
                 </h2>
             </div>
             <div className='flex flex-row'>
-                <Input type="text" placeholder="Search . . ." className='text-secondary placeholder:text-secondary w-[40rem] focus:border-[3px] focus:border-amber-500 focus:bg-slate-100 focus:text-purple-900'/>
+                <Input 
+                    type="text" 
+                    placeholder="Search . . ." 
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    // onKeyDown={handleSearch}
+                    className='text-secondary placeholder:text-secondary w-[40rem] focus:border-[3px] focus:border-amber-500 focus:bg-slate-100 focus:text-purple-900'
+                />
             </div>
             <NavigationMenu className='flex flex-row p-8'>
                 <NavigationMenuList>
                     <NavigationMenuItem className="flex h-5 items-center space-x-4 text-sm text-secondary">
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('general')}>General</button>
-                            <Separator orientation="vertical" />
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('business')}>Business</button>
-                            <Separator orientation="vertical" />
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('technology')}>Technology</button>
-                            <Separator orientation="vertical" />
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('science')}>Science</button>
-                            <Separator orientation="vertical" />
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('health')}>Health</button>
-                            <Separator orientation="vertical" />
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('sports')}>Sports</button>
-                            <Separator orientation="vertical" />
-                            <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('Entertainment')}>Entertainment</button>
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('general')}>General</button>
+                        <Separator orientation="vertical" />
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('business')}>Business</button>
+                        <Separator orientation="vertical" />
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('technology')}>Technology</button>
+                        <Separator orientation="vertical" />
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('science')}>Science</button>
+                        <Separator orientation="vertical" />
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('health')}>Health</button>
+                        <Separator orientation="vertical" />
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('sports')}>Sports</button>
+                        <Separator orientation="vertical" />
+                        <button className='cursor-pointer text-secondary bg-transparent' onClick={() => navigateToCategory('Entertainment')}>Entertainment</button>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
