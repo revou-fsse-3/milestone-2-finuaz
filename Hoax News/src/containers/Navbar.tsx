@@ -1,34 +1,30 @@
 import {
 	NavigationMenu,
-	// NavigationMenuContent,
-	// NavigationMenuIndicator,
 	NavigationMenuItem,
-	// NavigationMenuLink,
-	NavigationMenuList,
-    // Separator
-	// NavigationMenuTrigger,
-	// NavigationMenuViewport,
+	NavigationMenuList
 } from '@/components/ui/navigation-menu'
 import { Input } from "@/components/ui/input"
 import { useNavigate } from 'react-router-dom';
 import { Separator } from "@/components/ui/separator"
+import { useState } from 'react';
 
 const Navbar = () => {
     const navigate = useNavigate();
-    // const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
 
 
     const navigateToCategory = (categoryValue : string) => {
         navigate(`/categories/${categoryValue}`);
-      };    
+    };    
     
-    // const handleSearch = (event) => {
-    //     if (event.key === 'Enter') {
-    //         // Update the URL with the search query
-    //         console.log(searchQuery)
-    //         // navigate(`/search-result?query=${searchQuery}`);
-    //     }
-    // };
+    const handleSearch = (event) => {
+        if (event.key === 'Enter') {
+            // Update the URL with the search query 
+            console.log(searchQuery)
+            navigate(`/search-result/${searchQuery}`);
+            // setSearchQuery('')
+        }
+    };
 
 
 	return (
@@ -46,7 +42,7 @@ const Navbar = () => {
                     type="text" 
                     placeholder="Search . . ." 
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    // onKeyDown={handleSearch}
+                    onKeyDown={handleSearch}
                     className='text-secondary placeholder:text-secondary w-[40rem] focus:border-[3px] focus:border-amber-500 focus:bg-slate-100 focus:text-purple-900'
                 />
             </div>

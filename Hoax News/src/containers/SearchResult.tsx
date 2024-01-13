@@ -1,14 +1,11 @@
 import { Card } from '@/components/ui/card';
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-interface Props {
-    query? : string
-}
-
-const SearchResult = ({query = '*'} : Props) => {
+const SearchResult = () => {
     const [newsData, setNewsData] = useState([]);
-    // const query = 'world';
 
+    const { query } = useParams();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,12 +24,12 @@ const SearchResult = ({query = '*'} : Props) => {
         };
 
         fetchData(); 
-    }, []);
+    }, [query]);
 
     return (
         <>
             <div className='m-12'>
-                <h1 className='text-primary  font-semibold text-center text-3xl'>Search Result</h1>
+                <h1 className='text-primary  font-semibold text-center text-3xl'>Search Result for '{query}'</h1>
             </div>
             {newsData.map((article) => (            
                 <Card className='grid grid-cols-7 gap-4 my-8 mx-8'>
